@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Create Profile Card</title>
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+<style>
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap');
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
+}
+
+body{
+height:100vh;
+display:flex;
+align-items:center;
+justify-content:center;
+
+background: linear-gradient(90deg,#ff7eb3,#65d6ce,#8a7dff);
+background-size:600% 600%;
+animation: gradientMove 10s ease infinite;
+}
+
+@keyframes gradientMove{
+0%{background-position:0% 50%;}
+50%{background-position:100% 50%;}
+100%{background-position:0% 50%;}
+}
+
+.form-box{
+background:white;
+padding:30px;
+border-radius:20px;
+width:350px;
+box-shadow:0 10px 20px rgba(0,0,0,0.2);
+}
+
+.form-box h2{
+text-align:center;
+margin-bottom:15px;
+}
+
+input{
+width:100%;
+padding:10px;
+margin:8px 0;
+border-radius:8px;
+border:1px solid #ccc;
+}
+
+button{
+width:100%;
+padding:10px;
+margin-top:10px;
+border:none;
+border-radius:10px;
+background:#d61693;
+color:white;
+font-size:16px;
+cursor:pointer;
+}
+
+button:hover{
+opacity:0.9;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="form-box">
+
+<h2>Create Profile</h2>
+
+<form id="profileForm">
+
+<input type="text" placeholder="Your Name" id="name" required>
+
+<input type="text" placeholder="Job / Title" id="job" required>
+
+<input type="text" placeholder="Your Hobbies" id="hobbies">
+
+<input type="text" placeholder="Profile Image URL" id="image">
+
+<input type="text" placeholder="Instagram Link" id="instagram">
+
+<input type="text" placeholder="WhatsApp Link" id="whatsapp">
+
+<input type="text" placeholder="GitHub Link" id="github">
+
+<input type="text" placeholder="X (Twitter) Link" id="twitter">
+
+<input type="text" placeholder="Telegram Link" id="telegram">
+
+<button type="submit">Generate Card</button>
+
+</form>
+
+</div>
+
+<script>
+
+document.getElementById("profileForm").addEventListener("submit",function(e){
+
+e.preventDefault();
+
+localStorage.setItem("name",document.getElementById("name").value);
+localStorage.setItem("job",document.getElementById("job").value);
+localStorage.setItem("hobbies",document.getElementById("hobbies").value);
+localStorage.setItem("image",document.getElementById("image").value);
+localStorage.setItem("instagram",document.getElementById("instagram").value);
+localStorage.setItem("whatsapp",document.getElementById("whatsapp").value);
+localStorage.setItem("github",document.getElementById("github").value);
+localStorage.setItem("twitter",document.getElementById("twitter").value);
+localStorage.setItem("telegram",document.getElementById("telegram").value);
+
+window.location.href="card.html";
+
+});
+
+</script>
+
+</body>
+</html>

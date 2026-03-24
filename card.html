@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Profile Card</title>
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+<style>
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap');
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
+}
+
+body{
+height:100vh;
+display:flex;
+align-items:center;
+justify-content:center;
+
+background: linear-gradient(90deg,#ff7eb3,#65d6ce,#8a7dff);
+background-size:600% 600%;
+animation: gradientMove 10s ease infinite;
+}
+
+@keyframes gradientMove{
+0%{background-position:0% 50%;}
+50%{background-position:100% 50%;}
+100%{background-position:0% 50%;}
+}
+
+.profile-card{
+display:flex;
+flex-direction:column;
+align-items:center;
+max-width:370px;
+width:100%;
+background:#fff;
+box-shadow:0 5px 10px rgba(0,0,0,0.1);
+border-radius:25px;
+padding:10px;
+animation: fadeIn 0.8s ease forwards;
+}
+
+.image{
+position:relative;
+height:150px;
+width:150px;
+border-radius:50%;
+background-color:#d61693;
+animation:pulse 3s infinite;
+}
+
+.profile-photo{
+width:100%;
+height:100%;
+object-fit:cover;
+border-radius:25%;
+border:2px solid #f4f4f4;
+}
+
+.text-data{
+display:flex;
+flex-direction:column;
+align-items:center;
+}
+
+.name{
+font-size:22px;
+font-weight:500;
+}
+
+.job{
+font-size:16px;
+}
+
+.hobbies{
+font-size:14px;
+margin-top:5px;
+color:gray;
+}
+
+.media-buttons{
+display:flex;
+}
+
+.link{
+display:flex;
+align-items:center;
+justify-content:center;
+color:#fff;
+margin:0 8px;
+margin-top:25px;
+height:34px;
+width:34px;
+border-radius:50%;
+background-color:slategrey;
+text-decoration:none;
+transition:transform 0.2s ease;
+}
+
+.link:hover{
+transform:scale(1.2) rotate(8deg);
+background:#d61693;
+}
+
+@keyframes pulse{
+0% { box-shadow:0 0 0 0 rgba(214,22,147,0.5);}
+70% { box-shadow:0 0 0 15px rgba(214,22,147,0);}
+100% { box-shadow:0 0 0 0 rgba(214,22,147,0);}
+}
+
+@keyframes fadeIn{
+from{
+opacity:0;
+transform:translateY(40px);
+}
+to{
+opacity:1;
+transform:translateY(0);
+}
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="profile-card">
+
+<div class="image">
+<img id="profileImage" class="profile-photo">
+</div>
+
+<div class="text-data">
+<span class="name" id="name"></span>
+<span class="job" id="job"></span>
+<span class="hobbies" id="hobbies"></span>
+</div>
+
+<div class="media-buttons">
+
+<a id="instagram" class="link"><i class="fa-brands fa-instagram"></i></a>
+
+<a id="whatsapp" class="link"><i class="fa-brands fa-whatsapp"></i></a>
+
+<a id="github" class="link"><i class="fa-brands fa-github"></i></a>
+
+<a id="twitter" class="link"><i class="fa-brands fa-x-twitter"></i></a>
+
+<a id="telegram" class="link"><i class="fa-brands fa-telegram"></i></a>
+
+</div>
+
+</div>
+
+<script>
+
+document.getElementById("name").innerText = localStorage.getItem("name");
+document.getElementById("job").innerText = localStorage.getItem("job");
+document.getElementById("hobbies").innerText = localStorage.getItem("hobbies");
+
+document.getElementById("profileImage").src = localStorage.getItem("image");
+
+document.getElementById("instagram").href = localStorage.getItem("instagram");
+document.getElementById("whatsapp").href = localStorage.getItem("whatsapp");
+document.getElementById("github").href = localStorage.getItem("github");
+document.getElementById("twitter").href = localStorage.getItem("twitter");
+document.getElementById("telegram").href = localStorage.getItem("telegram");
+
+</script>
+
+</body>
+</html>
